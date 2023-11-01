@@ -1,0 +1,51 @@
+2023-11-01 at 18:26:13 | INFO | Buscando IDs de Produtos na API Tiny
+2023-11-01 at 18:26:13 | INFO | Criando DataFrame com IDs de produtos na tabela 'tiny_products'
+2023-11-01 at 18:26:13 | INFO | Verificando headers
+2023-11-01 at 18:26:15 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:15 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:15 | INFO | Verificando headers
+2023-11-01 at 18:26:16 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:16 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:16 | INFO | Verificando headers
+2023-11-01 at 18:26:17 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:17 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:17 | INFO | Verificando headers
+2023-11-01 at 18:26:18 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:18 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:18 | INFO | Verificando headers
+2023-11-01 at 18:26:19 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:19 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:19 | INFO | Verificando headers
+2023-11-01 at 18:26:21 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:21 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:21 | INFO | Verificando headers
+2023-11-01 at 18:26:22 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:22 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:22 | INFO | Verificando headers
+2023-11-01 at 18:26:23 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:23 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:23 | INFO | Verificando headers
+2023-11-01 at 18:26:24 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:24 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:24 | INFO | Verificando headers
+2023-11-01 at 18:26:25 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:25 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:25 | INFO | Verificando headers
+2023-11-01 at 18:26:26 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:26 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:26 | INFO | Verificando headers
+2023-11-01 at 18:26:27 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:27 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:27 | INFO | Verificando headers
+2023-11-01 at 18:26:28 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:28 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:28 | INFO | Verificando headers
+2023-11-01 at 18:26:30 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:30 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:30 | INFO | Verificando headers
+2023-11-01 at 18:26:31 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:31 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:31 | INFO | Verificando headers
+2023-11-01 at 18:26:32 | INFO | Enviando requisição POST
+2023-11-01 at 18:26:32 | INFO | Requisição realizada com sucesso!
+2023-11-01 at 18:26:32 | INFO | Verificando headers
