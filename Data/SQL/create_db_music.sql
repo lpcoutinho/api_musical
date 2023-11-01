@@ -32,4 +32,18 @@ CREATE TABLE "tiny_products" (
 );
 
 
-        
+CREATE TABLE "tiny_stock" (
+  "tiny_id" int,
+  "nome" varchar(150),
+  "sku_tiny" varchar(30),
+  "unidade" varchar(10),
+  "saldo_reservado" decimal,
+  "deposito.nome" varchar(150),
+  "deposito.desconsiderar" varchar(1),
+  "deposito.saldo" decimal,
+  "deposito.empresa" varchar(150),
+  "created_at" timestamp DEFAULT (now() at time zone 'utc'),
+  "updated_at" timestamp DEFAULT (now() at time zone 'utc')
+); 
+
+ALTER TABLE "tiny_stock" ADD FOREIGN KEY ("tiny_id") REFERENCES "tiny_products" ("tiny_id");
