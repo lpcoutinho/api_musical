@@ -63,27 +63,27 @@ class TinyLoader:
             logger.info(f"Ocorreu um erro: {str(e)}")
             return None
 
-    def get_tiny_stock(df_tiny_id, token, formato):
-        df_tiny_id = df_tiny_id.head(3)
+    # def get_tiny_stock(df_tiny_id, token, formato):
+    #     df_tiny_id = df_tiny_id.head(3)
 
-        url = "https://api.tiny.com.br/api2/produto.obter.estoque.php"
-        reponses = []  # Lista para armazenar os resultados
-        num = 0
+    #     url = "https://api.tiny.com.br/api2/produto.obter.estoque.php"
+    #     reponses = []  # Lista para armazenar os resultados
+    #     num = 0
 
-        for id in df_tiny_id["ID Tiny"]:
-            logger.info(f"Buscando dados de {id}")
-            num += 1
-            logger.info(f"Loop: {num}")
-            data = {"token": token, "id": id, "formato": formato}
-            reponse = enviarREST(url, data)
-            reponses.append(reponse)
+    #     for id in df_tiny_id["ID Tiny"]:
+    #         logger.info(f"Buscando dados de {id}")
+    #         num += 1
+    #         logger.info(f"Loop: {num}")
+    #         data = {"token": token, "id": id, "formato": formato}
+    #         reponse = enviarREST(url, data)
+    #         reponses.append(reponse)
 
-            # Verifica se é múltiplo de 50 para aguardar 1 minuto a cada 50 requisições
-            if num % 50 == 0:
-                logger.info("Esperando 1 minuto...")
-                time.sleep(60)  # Pausa por 1 minuto
+    #         # Verifica se é múltiplo de 50 para aguardar 1 minuto a cada 50 requisições
+    #         if num % 50 == 0:
+    #             logger.info("Esperando 1 minuto...")
+    #             time.sleep(60)  # Pausa por 1 minuto
 
-        return reponses
+    #     return reponses
 
     def process_json_list(self, json_list):
         logger.info(f"Processando {json_list}.")
@@ -175,9 +175,9 @@ class TinyLoader:
         else:
             logger.info("Não foi verificado erro de processamento.")
 
-    def save_tiny_stock(reponses, output_csv_path):
+    def save_tiny_stock(self, reponses, output_csv_path):
         try:
-            df_tiny_stock = process_json_list(
+            df_tiny_stock = self.process_json_list(
                 reponses
             )  # Cria DataFrame de Estoque da Tiny
 
@@ -189,7 +189,7 @@ class TinyLoader:
         except Exception as e:
             logger.error(f"Erro ao construir df_tiny_stock: {e}")
 
-    def insert_tiny_stock(self, df, db_config):
+    def insert_tiny_stock_db(self, df, db_config):
         try:
             conn = psycopg2.connect(**db_config)
             cursor = conn.cursor()
@@ -225,7 +225,7 @@ class TinyLoader:
         except Exception as e:
             logger.info(f"Ocorreu um erro: {str(e)}")
 
-    def get_stock(self):
+    def get_tiny_stock(self):
         df_tiny_id = self.load_tiny_ids()
 
         df_tiny_id_no_nan = df_tiny_id.dropna(
@@ -259,14 +259,14 @@ class TinyLoader:
 
         df_tiny_id = self.process_json_list(responses)
 
-        self.insert_tiny_stock(df_tiny_id, self.db_config)
+        self.insert_tiny_stock_db(df_tiny_id, self.db_config)
 
 
 # if __name__ == "__main__":
 #     start_prog = time.time()  # Registra o inicio da aplicação
 
 #     loader = TinyLoader(db_config, token, tiny_format)
-#     loader.get_stock()
+#     loader.get_tiny_stock()
 #     # main()
 
 #     end_prog = time.time()  # Registra o tempo depois de toda aplicação

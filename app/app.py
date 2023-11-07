@@ -36,7 +36,7 @@ if __name__ == "__main__":
     start_prog = time.time()  # Registra o inicio da aplicação
 
     loader = TinyLoader(db_config, token, tiny_format)
-    loader.get_stock()
+    loader.get_tiny_stock()
     # main()
 
     end_prog = time.time()  # Registra o tempo depois de toda aplicação

@@ -28,9 +28,8 @@ CREATE TABLE "tiny_products" (
   "qtd_volumes" decimal,
   "categoria" varchar(255),
   "created_at" timestamp DEFAULT (now() at time zone 'utc'),
-  "updated_at" timestamp DEFAULT (now() at time zone 'utc')
+  "updated_at" timestamp
 );
-
 
 CREATE TABLE "tiny_stock" (
   "tiny_id" int,
@@ -38,12 +37,42 @@ CREATE TABLE "tiny_stock" (
   "sku_tiny" varchar(30),
   "unidade" varchar(10),
   "saldo_reservado" decimal,
-  "deposito.nome" varchar(150),
-  "deposito.desconsiderar" varchar(1),
-  "deposito.saldo" decimal,
-  "deposito.empresa" varchar(150),
+  "deposito_nome" varchar(150),
+  "deposito_desconsiderar" varchar(1),
+  "deposito_saldo" decimal,
+  "deposito_empresa" varchar(150),
   "created_at" timestamp DEFAULT (now() at time zone 'utc'),
-  "updated_at" timestamp DEFAULT (now() at time zone 'utc')
-); 
+  "updated_at" timestamp
+);
+
+CREATE TABLE "tiny_ml_codes" (
+  "tiny_id" int,
+  "ml_inventory_id" varchar(30),
+  "created_at" timestamp DEFAULT (now() at time zone 'utc'),
+  "updated_at" timestamp
+);
+
+CREATE TABLE "ml_fulfillment" (
+  "tiny_id" int,
+  "ml_inventory_id" varchar(30),
+  "item_id" varchar(30),
+  "type" varchar(30),
+  "total" int,
+  "available_quantity" int,
+  "not_available_quantity" int,
+  "created_at" timestamp DEFAULT (now() at time zone 'utc'),
+  "updated_at" timestamp
+);
 
 ALTER TABLE "tiny_stock" ADD FOREIGN KEY ("tiny_id") REFERENCES "tiny_products" ("tiny_id");
+
+ALTER TABLE "tiny_ml_codes" ADD FOREIGN KEY ("tiny_id") REFERENCES "tiny_products" ("tiny_id");
+
+ALTER TABLE "tiny_ml_codes" ADD CONSTRAINT unique_ml_tiny_combination UNIQUE ("ml_inventory_id", "tiny_id");
+
+ALTER TABLE "tiny_ml_codes" ADD CONSTRAINT unique_ml_inventory_id UNIQUE ("ml_inventory_id");
+
+ALTER TABLE "ml_fulfillment" ADD FOREIGN KEY ("tiny_id") REFERENCES "tiny_products" ("tiny_id");
+
+ALTER TABLE "ml_fulfillment" ADD FOREIGN KEY ("ml_inventory_id") REFERENCES "tiny_ml_codes" ("ml_inventory_id");
+
