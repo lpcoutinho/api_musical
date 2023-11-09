@@ -1,3 +1,5 @@
+import json
+
 import requests
 from loguru import logger
 
@@ -27,6 +29,13 @@ def sendREST(url, data, optional_headers=None):
 
 
 def save_csv_df(df, path):
-    logger.info(f"Criando arquivo {output_csv_path}")
+    logger.info(f"Criando arquivo {path}")
     df.to_csv(path, index=False)
     logger.info(f"DataFrame salvos como CSV em {path}")
+
+
+def save_json_list_to_txt(json_list, output_file):
+    with open(output_file, "w") as file:
+        for json_data in json_list:
+            json.dump(json_data, file)
+            file.write("\n")

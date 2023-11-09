@@ -1,8 +1,9 @@
-from tiny_consume import TinyLoader
-from loguru import logger
-import time
-from dotenv import load_dotenv
 import os
+import time
+
+from dotenv import load_dotenv
+from loguru import logger
+from tiny_consume import TinyLoader
 
 logger.add(
     "Data/Output/Log/app.log",

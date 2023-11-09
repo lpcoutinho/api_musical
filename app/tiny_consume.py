@@ -8,8 +8,8 @@ import pandas as pd
 import psycopg2
 import requests
 from dotenv import load_dotenv
-from utils import sendREST
 from loguru import logger
+from utils import sendREST
 
 logger.add(
     "Data/Output/Log/tiny_log.log",
@@ -212,7 +212,7 @@ class TinyLoader:
                     row["deposito.nome"],
                     row["deposito.desconsiderar"],
                     row["deposito.saldo"],
-                    row["deposito.empresa"]
+                    row["deposito.empresa"],
                 )
                 n += 1
                 cursor.execute(query, values)
