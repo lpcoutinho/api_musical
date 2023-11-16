@@ -2,7 +2,7 @@
 import json
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pandas as pd
 import psycopg2
@@ -12,6 +12,8 @@ from loguru import logger
 from pandas import json_normalize
 from psycopg2 import sql
 from utils import save_json_list_to_txt, sendREST
+
+import math
 
 logger.add(
     "Data/Output/Log/ml_log.log",
